@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+@theme {
+  --color-terracotta: #C1642F;
+  --color-terracotta-dark: #9C4E22;
+  --color-clay: #7A4A2B;
+  --color-clay-dark: #5A3620;
+  --color-sand: #EFE0C3;
+  --color-cream: #FBF3E7;
+  --color-ink: #2B1D13;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-ink font-body;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
